@@ -16,6 +16,10 @@ class ActorsController < ApplicationController
       end
    end
 
+   def show
+      @actor = Actor.find(params[:id])
+   end
+
    def actor_params
       params.require(:actor).permit(:name, :bio, :birth_date, :birth_place, :image_url, :alive, :death_date, :death_place)
    end
