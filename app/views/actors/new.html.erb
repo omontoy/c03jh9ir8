@@ -2,25 +2,53 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-offset-3 col-sm-6">
-            <h1>CREAR NUEVO USUARIO</h1>
+            <h1 class="text-center">CREAR NUEVO ACTOR</h1>
             <div class="jumbotron">
               
               <%= form_for @actor do |actor| %>
-              <ul>
-                 <li>Nombre <%= actor.text_field :name %></li>
-                 <li>Biografía <%= actor.text_area :bio %></li>
-                 <li>Fecha de Nacimiento <%= actor.date_field :birth_date %></li>
-                 <li>Lugar de Nacimiento <%= actor.text_field :birth_place %></li>
-                 <li>url de la foto <%= actor.url_field :image_url %></li>
-                 <li>Aún vive <%= actor.check_box :alive, {}, true, false %></li>
-                 <li>Fecha de Muerte <%= actor.date_field :death_date %></li>
-                 <li>Lugar de la Muerte <%= actor.text_field :death_place %></li>
-              </ul>
-              <%= actor.submit %>
+
+                <div class="form-group">
+                  <%= actor.text_field :name, class:"form-control" , placeholder:"Nombre del actor" %>
+                </div>
+
+                <div class="form-group">
+                  <%= actor.text_area :bio, class:"form-control", placeholder:"Biografía" %>
+                </div>
+
+                <div class="form-group">
+                  <label>Fecha de Nacimiento</label><br>
+                  <%= actor.date_field :birth_date, class:"form-control" %>
+                </div>
+
+                <div class="form-group">
+                  <%= actor.text_field :birth_place, class:"form-control", placeholder:"Luga de Nacimiento" %>
+                </div>
+
+                <div class="form-group">
+                  <%= actor.url_field :image_url, class:"form-control", placeholder:"URL de la foto" %>
+                </div>
+                
+                <div class="text-center">
+                  <label>Aún vive</label><br>
+                  <%= actor.check_box :alive, {}, true, false %>
+                </div>
+                
+                <div class="form-group">
+                  <label>Fecha del fallecimiento</label><br>
+                  <%= actor.date_field :death_date, class:"form-control" %>
+                </div>
+
+                <div class="form-group">
+                  <%= actor.text_field :death_place, class:"form-control", placeholder:"Lugar del fallecimiento" %>
+                </div>
+               
+                <div class="text-center">
+                  <br><%= actor.submit "Crear Actor", class:"btn btn-success" %>
+                </div>
+              
               <% end %>
              
             </div> 
         </div>
     </div>
 </div>
-
